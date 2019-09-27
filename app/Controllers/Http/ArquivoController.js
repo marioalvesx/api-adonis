@@ -29,6 +29,8 @@ class ArquivoController {
         .map(item => Arquivo.create({ tarefa_id: tarefa.id, caminho: item.fileName}))
       )
 
+      return response.status(200).send({message: 'Arquivos inseridos com sucesso.'})
+
     }catch (error) {
       return response.status(500).send({erro: 'Ocorreu um erro no upload'})
     }
