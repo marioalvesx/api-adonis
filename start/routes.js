@@ -16,9 +16,15 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+// Rota para a view hello-world
 Route.get('hello-world', ({ view }) => {
   return view.render('hello-world')
 })
+
+// Rota para Main
+Route.on('/').render('main')
+
+// Rota para Login do usuário
 
 Route.post('/user', 'UserController.create')
 Route.post('/login', 'UserController.login')
@@ -26,4 +32,3 @@ Route.post('/login', 'UserController.login')
 Route.resource('tarefa', 'TarefaController').apiOnly().middleware('auth')
 
 Route.post('/tarefa/:id/arquivo', 'ArquivoController.create').middleware('auth')
-
