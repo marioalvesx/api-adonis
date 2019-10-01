@@ -22,8 +22,9 @@ Route.get('hello-world', ({ view }) => {
 })
 
 // Rota para Main
-Route.on('/').render('main')
-
+Route.get('main', ({ view }) => {
+  return view.render('main')
+})
 // Rota para Login do usuário
 
 Route.post('/user', 'UserController.create')
